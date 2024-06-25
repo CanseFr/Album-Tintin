@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:tintinapp/models/album.dart';
 import 'package:tintinapp/screens/albums_favorite.dart';
 import 'package:tintinapp/services/album_service.dart';
+import 'albums_info.dart';
 
 class MyHomePageAlbum extends StatefulWidget {
   const MyHomePageAlbum({Key? key, required this.title}) : super(key: key);
@@ -27,17 +28,18 @@ class _MyHomePageAlbumState extends State<MyHomePageAlbum> {
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
-        // actions: [
-        //   IconButton(
-        //     icon: Icon(Icons.navigate_next, color: Colors.white),
-        //     onPressed: () {
-        //       Navigator.push(
-        //         context,
-        //         MaterialPageRoute(builder: (context) => AlbumsFavorite()),
-        //       );
-        //     },
-        //   ),
-        // ],
+        actions: [
+          Text("Consulter votre liste de lecture "),
+          IconButton(
+            icon: Icon(Icons.favorite, color: Colors.white),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => AlbumsFavorite(faveList: faveList)),
+              );
+            },
+          ),
+        ],
       ),
       body: Center(
         child: FutureBuilder<List<Album>>(
@@ -82,7 +84,13 @@ class _MyHomePageAlbumState extends State<MyHomePageAlbum> {
                               IconButton(
                                 icon: Icon(Icons.search, color: Colors.white),
                                 onPressed: () {
-                                  print("Open dialog info");
+                                  // Naviguer vers AlbumInfo avec l'album sélectionné
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => AlbumInfo(album: album),
+                                    ),
+                                  );
                                 },
                               ),
                               IconButton(
