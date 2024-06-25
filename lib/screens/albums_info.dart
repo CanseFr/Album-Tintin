@@ -9,13 +9,18 @@ class AlbumInfo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
       appBar: AppBar(
         title: Text(album.title),
+
       ),
       body: Center(
+
         child: Column(
+
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+
             Text('Album n°: ${album.number}', style: TextStyle(fontSize: 18, color: Colors.white)),
             Image.asset(
               album.image,
@@ -25,8 +30,7 @@ class AlbumInfo extends StatelessWidget {
             ),
             SizedBox(height: 16),
             Padding(padding: EdgeInsets.all(15), child:
-            Text('Résumé : ${album.resume}', style: TextStyle(fontSize: 15, color: Colors.white)),
-              )
+            Text('Résumé : ${album.resume}', style: TextStyle(fontSize: 15, color: Colors.white)))
             // Ajoutez d'autres informations sur l'album selon vos besoins
           ],
         ),

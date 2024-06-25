@@ -11,12 +11,17 @@ class AlbumsFavorite extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
       appBar: AppBar(
         title: Text('Favorites'),
+
       ),
       body: FutureBuilder<List<Album>>(
+
         future: AlbumService.fetchAlbums(),
         builder: (context, AsyncSnapshot<List<Album>> snapshot) {
+
+          // VERIF REQUEST
           if (snapshot.connectionState == ConnectionState.waiting) {
             return Center(child: CircularProgressIndicator());
           } else if (snapshot.hasError) {
@@ -33,6 +38,7 @@ class AlbumsFavorite extends StatelessWidget {
             return ListView.builder(
               itemCount: favoriteAlbums.length,
               itemBuilder: (context, index) {
+
                 var album = favoriteAlbums[index];
 
                 return Padding(
@@ -40,6 +46,8 @@ class AlbumsFavorite extends StatelessWidget {
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(8.0),
                     child: Container(
+
+
                       decoration: BoxDecoration(
                         color: Color.fromARGB(173, 44, 43, 43),
                         borderRadius: BorderRadius.circular(8.0),
@@ -56,13 +64,16 @@ class AlbumsFavorite extends StatelessWidget {
                             ),
                           ),
                         ),
+
+
                         trailing: Row(
                           mainAxisSize: MainAxisSize.min,
                           children: [
+
+
                             IconButton(
                               icon: Icon(Icons.search, color: Colors.white),
                               onPressed: () {
-                                // Naviguer vers AlbumInfo avec l'album sélectionné
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(

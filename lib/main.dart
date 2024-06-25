@@ -12,9 +12,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
 
-
       title: 'Tintin Gallery',
-
 
       theme: ThemeData(
         scaffoldBackgroundColor: Colors.black,
