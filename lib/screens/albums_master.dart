@@ -116,8 +116,12 @@ class _MyHomePageAlbumState extends State<MyHomePageAlbum> {
 
                               // ADD TO FAVORITE
                               IconButton(
-                                icon: Icon(Icons.favorite_border,
-                                    color: Provider.of<Favoritemodel>(context, listen: false).items.contains(album.number) ? Colors.red : Colors.white),
+                                icon: Consumer<Favoritemodel>(
+                                  builder: (context, favoritemodel, _) => Icon(
+                                    Icons.favorite_border,
+                                    color: favoritemodel.contain(album.number) ? Colors.red : Colors.white,
+                                  ),
+                                ),
                                 onPressed: () {
 
                                   if (Provider.of<Favoritemodel>(context, listen: false).items.contains(album.number)) {

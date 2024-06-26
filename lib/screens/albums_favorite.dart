@@ -58,6 +58,9 @@ class AlbumsFavorite extends StatelessWidget {
                               color: Color.fromARGB(173, 44, 43, 43),
                               borderRadius: BorderRadius.circular(8.0),
                             ),
+
+
+
                             child: ListTile(
                               title: Text(album.title, style: TextStyle(color: Colors.white)),
                               leading: ClipRRect(
@@ -91,7 +94,11 @@ class AlbumsFavorite extends StatelessWidget {
                                 ],
                               ),
                             ),
+
+
+
                           ),
+
                         ),
                       );
                     },
@@ -102,6 +109,12 @@ class AlbumsFavorite extends StatelessWidget {
 
                 }
               },
+            ),
+            floatingActionButton: FloatingActionButton(
+              onPressed: (){
+                Provider.of<Favoritemodel>(context, listen: false).removeAll();
+              },
+              child: Icon(Icons.delete),
             ),
           );
         }

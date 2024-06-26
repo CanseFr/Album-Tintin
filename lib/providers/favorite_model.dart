@@ -17,7 +17,6 @@ class Favoritemodel extends ChangeNotifier{
   }
 
   void remove(int indexAlbumFav) {
-    print('DELETE');
     _items.remove(indexAlbumFav);
     notifyListeners();
   }
