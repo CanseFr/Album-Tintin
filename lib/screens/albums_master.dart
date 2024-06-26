@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:tintinapp/models/album.dart';
+import 'package:tintinapp/providers/favorite_model.dart';
 import 'package:tintinapp/screens/albums_favorite.dart';
 import 'package:tintinapp/services/album_service.dart';
 import 'albums_info.dart';
@@ -37,7 +39,7 @@ class _MyHomePageAlbumState extends State<MyHomePageAlbum> {
             onPressed: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => AlbumsFavorite(faveList: faveList)),
+                MaterialPageRoute(builder: (context) => AlbumsFavorite()),
               );
             },
           ),
@@ -98,6 +100,7 @@ class _MyHomePageAlbumState extends State<MyHomePageAlbum> {
                             children: [
 
 
+                              // CHECK INFO ALBUM
                               IconButton(
                                 icon: Icon(Icons.search, color: Colors.white),
                                 onPressed: () {
@@ -111,17 +114,22 @@ class _MyHomePageAlbumState extends State<MyHomePageAlbum> {
                               ),
 
 
+                              // ADD TO FAVORITE
                               IconButton(
-                                icon: Icon(Icons.favorite_border,
-                                    color: faveList.contains(album.number) ? Colors.red : Colors.white),
+                                icon: Consumer<Favoritemodel>(
+                                  builder: (context, favoritemodel, _) => Icon(
+                                    Icons.favorite_border,
+                                    color: favoritemodel.contain(album.number) ? Colors.red : Colors.white,
+                                  ),
+                                ),
                                 onPressed: () {
-                                  setState(() {
-                                    if (faveList.contains(album.number)) {
-                                      faveList.remove(album.number);
-                                    } else {
-                                      faveList.add(album.number);
-                                    }
-                                  });
+
+                                  if (Provider.of<Favoritemodel>(context, listen: false).items.contains(album.number)) {
+                                    Provider.of<Favoritemodel>(context, listen: false).remove(album.number);
+                                  } else {
+                                    Provider.of<Favoritemodel>(context, listen: false).add(album.number);
+                                  }
+
                                 },
                               ),
                             ],
