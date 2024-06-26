@@ -74,7 +74,7 @@ class _MyHomePageAlbumState extends State<MyHomePageAlbum> {
                       child: Container(
 
                           decoration: BoxDecoration(
-                          color: Color.fromARGB(173, 44, 43, 43),
+                          color: Theme.of(context).colorScheme.tertiary,
                           borderRadius: BorderRadius.circular(8.0),
                         ),
                         child: ListTile(

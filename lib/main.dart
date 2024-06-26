@@ -15,6 +15,14 @@ class MyApp extends StatelessWidget {
       title: 'Tintin Gallery',
 
       theme: ThemeData(
+        useMaterial3: true,
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: Colors.deepOrange,
+          primary: Colors.red,
+          secondary: Colors.black,
+          tertiary: Color.fromARGB(173, 44, 43, 43),
+
+      ),
         scaffoldBackgroundColor: Colors.black,
         appBarTheme: const AppBarTheme(
           backgroundColor: Colors.red,
@@ -22,9 +30,7 @@ class MyApp extends StatelessWidget {
         ),
       ),
 
-
       home: const MyHomePageAlbum(title: 'Albums'),
-
 
     );
   }
