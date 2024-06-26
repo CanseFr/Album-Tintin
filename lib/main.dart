@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:tintinapp/providers/favorite_model.dart';
 import 'package:tintinapp/screens/albums_master.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+      ChangeNotifierProvider(
+        create: (context)=>Favoritemodel(),
+        child: const MyApp())
+  );
 }
 
 class MyApp extends StatelessWidget {
