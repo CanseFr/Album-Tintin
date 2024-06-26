@@ -19,10 +19,6 @@ class Album {
     return 'Album{title: $title, number: $number, year: $year, yearInColor: $yearInColor, image: $image, resume: $resume}';
   }
 
-  // String toJson() {
-  //   return '{title: $title, number: $number, year: $year, yearInColor: $yearInColor, image: $image, resume: $resume}';
-  // }
-
   factory Album.fromJson(Map<String, dynamic> json) {
     return Album(
       title: json['titre'] ?? '',
