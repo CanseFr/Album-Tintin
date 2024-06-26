@@ -64,7 +64,7 @@ class _MyHomePageAlbumState extends State<MyHomePageAlbum> {
                 itemCount: snapshot.data!.length,
 
                 itemBuilder: (context, index) {
-                  var album = snapshot.data![index];
+                var album = snapshot.data![index];
 
                   return Padding(
                     padding: const EdgeInsets.all(4.0),
@@ -73,7 +73,7 @@ class _MyHomePageAlbumState extends State<MyHomePageAlbum> {
                       borderRadius: BorderRadius.circular(8.0),
                       child: Container(
 
-                        decoration: BoxDecoration(
+                          decoration: BoxDecoration(
                           color: Color.fromARGB(173, 44, 43, 43),
                           borderRadius: BorderRadius.circular(8.0),
                         ),
